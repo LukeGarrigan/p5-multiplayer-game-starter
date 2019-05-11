@@ -15,7 +15,7 @@
 
 
 
-A very simple way to kick-start your multiplayer game development using express, socket.io and p5.js. It represents an opinionated approach to multiplayer game development which should allow you to skip the laborious beginning boiler-plate steps.
+A very simple way to kick-start your multiplayer game development using express, socket.io and p5.js. It represents an opinionated approach to multiplayer game development which should allow you to skip the laborious beginning boiler-plate steps. Please check out my blog https://codeheir.com/2019/05/11/how-to-code/ for more information on the repository and how to code multiplayer games!
 
 ## How to use
 
