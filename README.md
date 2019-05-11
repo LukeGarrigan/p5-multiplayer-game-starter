@@ -1,6 +1,7 @@
 
 <h1 align="center">
   <br>
+      <img src="https://i.ibb.co/jMstmV4/logo.jpg" alt="codeheir logo" title="Codeheir"  height="200" />
   <br>
   p5-multiplayer-game-starter
   <br>
