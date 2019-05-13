@@ -2,10 +2,10 @@ const socket = io.connect('http://localhost');
 
 let players = [];
 
-socket.on("heartbeat", players => updateGame(players));
-
-
+socket.on("heartbeat", players => updatePlayers(players));
 socket.on("disconnect", playerId => removePlayer(playerId));
+
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -15,28 +15,24 @@ function draw() {
   players.forEach(player => player.draw());
 }
 
-
-function updateGame(serverPlayers) {
-
+function updatePlayers(serverPlayers) {
   for (let i = 0; i < serverPlayers.length; i++) {
-
-    let exists = false;
-    for (let j = 0; j < players.length; j++) {
-      if (serverPlayers[i].id === players[j].id) {
-        exists = true;
-      }
+    let playerFromServer = serverPlayers[i];
+    if (!playerExists(playerFromServer)) {
+      players.push(new Player(playerFromServer));
     }
-
-    if (!exists) {
-      players.push(new Player(serverPlayers[i]));
-    }
-
   }
 }
 
-
+function playerExists(playerFromServer) {
+  for (let i = 0; i < players.length; i++) {
+    if (players[i].id === playerFromServer) {
+      return true;
+    }
+  }
+  return false;
+}
 
 function removePlayer(playerId) {
-  console.log(playerId + "STAPP");
   players = players.filter(player => player.id !== playerId);
 }
