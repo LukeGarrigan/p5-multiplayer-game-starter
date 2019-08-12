@@ -19,7 +19,7 @@ A very simple way to kick-start your multiplayer game development using express,
 
 ## How to use
 
-1. Clone the project
+1. `git clone https://github.com/LukeGarrigan/p5-multiplayer-game-start.git`
 2. `npm install` in the root directory
 3. `npm start` to get it running!
 
