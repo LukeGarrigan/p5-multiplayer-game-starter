@@ -13,11 +13,3 @@
 1. `npm install` in the root directory
 2. `npm start` to get it running!
 3. Navigate to localhost:4000
-
-
-## How it looks
-
-### First Commit
-![Image from the first commit](https://imgur.com/eVRj886)
-
-"# hacktober-race" 
