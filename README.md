@@ -1,5 +1,8 @@
 
 <h1 align="center">
+  <br>
+      <img src="https://i.ibb.co/jMstmV4/logo.jpg" alt="codeheir logo" title="Codeheir"  height="200" />
+  <br>
 
   p5-multiplayer-game-starter
   <br>
@@ -7,9 +10,6 @@
 
 <h4 align="center">A p5/node.js/express/socket.io starter to allow you to quickly develop multiplayer games</h4>
 
-<a href="https://twitter.com/codeheir">
-    <img src="https://pbs.twimg.com/profile_images/1025347326037159936/XI_T6kun_400x400.jpg" alt="codeheir logo" title="Codeheir" align="right" height="100" />
-</a>
 
 
 
