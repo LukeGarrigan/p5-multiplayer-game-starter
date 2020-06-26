@@ -27,8 +27,7 @@ io.sockets.on("connection", socket => {
 
 io.sockets.on("disconnect", socket => {
   io.sockets.emit("disconnect", socket.id);
-
-  players = players.filter(player.id !== socket.id);
+  players = players.filter(player => player.id !== socket.id);
 });
 
 
