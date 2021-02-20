@@ -1,13 +1,10 @@
 const socket = io.connect('http://localhost');
 
 let players = [];
-
 socket.on("heartbeat", players => updatePlayers(players));
-socket.on("disconnect", playerId => removePlayer(playerId));
-
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 800);
 }
 
 function draw() {
@@ -16,6 +13,10 @@ function draw() {
 }
 
 function updatePlayers(serverPlayers) {
+  let removedPlayers = players.filter(p => serverPlayers.findIndex(s => s.id == p.id));
+  for (let player of removedPlayers) {
+    removePlayer(player.id);
+  }
   for (let i = 0; i < serverPlayers.length; i++) {
     let playerFromServer = serverPlayers[i];
     if (!playerExists(playerFromServer)) {
