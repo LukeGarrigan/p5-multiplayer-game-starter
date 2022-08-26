@@ -1,33 +1,32 @@
 const express = require("express");
-const socket = require('socket.io');
-const app = express();
+
 let Player = require("./Player");
 
-let server = app.listen(80);
+const app = require('express')();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 console.log('The server is now running at http://localhost/');
 app.use(express.static("public"));
-
-
-let io = socket(server);
 
 let players = [];
 
 setInterval(updateGame, 16);
 
-io.sockets.on("connection", socket => {
+io.on("connection", socket => {
   console.log(`New connection ${socket.id}`);
   players.push(new Player(socket.id));
 
   socket.on("disconnect", () => {
-    io.sockets.emit("disconnect", socket.id);
+    socket.disconnect();
     players = players.filter(player => player.id !== socket.id);
+    console.log(`Disconnected ${socket.id}`);
   });
 });
 
 function updateGame() {
-  io.sockets.emit("heartbeat", players);
+  io.emit("heartbeat", players);
 }
 
-
+server.listen(80);
 
 
